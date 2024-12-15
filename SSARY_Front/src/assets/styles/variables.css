@@ -1,0 +1,23 @@
+/*CSS 변수 정의*/
+:root {
+    /*기본 색상*/
+    --primary-color: #56D0FF; /*UI 대표 색상, 버튼, 링크, 강조 텍스트, 배경 등에 사용*/
+    --secondary-color: #D0F9FF; /*보조 색상, 보조 버튼, 경계선, 배경 강조 등에 사용*/
+    --background-color: #fff;
+
+    /*버튼 색상*/
+
+    /*중립 색상*/
+    --neutral-dark: #7F7F7F;
+    --neutral-light: #D9D9D9;
+
+    /*기타 색상*/
+    --warning-color: #E74852;
+
+    /*기타 스타일*/
+    --font-size-base: 18px;
+
+    /*Auth*/
+    --diary-width: 976px;
+    --diary-height: 665px;
+}
