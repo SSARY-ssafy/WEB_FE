@@ -1,8 +1,21 @@
 <template>
   <div class="calendar-view">
     <h1>전체 캘린더</h1>
-    <MiniCalendar />
-    <BigCalendar />
+    <!-- 캘린더 컨테이너 -->
+    <div class="calendars-container">
+      <!-- 왼쪽: 작은 캘린더 -->
+      <div class="mini-calendar-container">
+        <MiniCalendar />
+      </div>
+      <!-- 가운데: 큰 캘린더 -->
+      <div class="big-calendar-container">
+        <BigCalendar />
+      </div>
+      <!-- 오른쪽: 추가 컴포넌트 (Placeholder) -->
+      <div class="additional-container">
+        <p>추가 컴포넌트 영역</p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -13,13 +26,49 @@ import BigCalendar from "@/components/calendar/Bigcal.vue";
 
 <style scoped>
 .calendar-view {
-  text-align: center;
   font-family: Arial, sans-serif;
-  margin: 8rem; /* MyCalendarView와 구분하기 위해 다르게 설정 */
-  padding-top: 8rem; /* 헤더 높이만큼 여백 추가 */
+  padding: 2rem;
+  background-color: var(--background-color);
 }
 
 h1 {
-  color: #333; /* 다른 색상으로 구분 */
+  text-align: center;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+/* 캘린더 컨테이너: Flexbox를 사용해 6등분 */
+.calendars-container {
+  display: flex;
+  justify-content: space-between; /* 각 항목을 균등하게 배치 */
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+/* 1/6: 작은 캘린더 */
+.mini-calendar-container {
+  flex: 1; /* 전체 비율의 1/6 */
+  max-width: 16.66%; /* 1/6 비율 */
+}
+
+/* 4/6: 큰 캘린더 */
+.big-calendar-container {
+  flex: 4; /* 전체 비율의 4/6 */
+  max-width: 66.66%; /* 4/6 비율 */
+}
+
+/* 1/6: 추가 컴포넌트 영역 */
+.additional-container {
+  flex: 1; /* 전체 비율의 1/6 */
+  max-width: 16.66%; /* 1/6 비율 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  font-weight: bold;
+  border: 1px solid var(--neutral-light);
+  border-radius: 0.5rem;
+  height: 100%;
 }
 </style>

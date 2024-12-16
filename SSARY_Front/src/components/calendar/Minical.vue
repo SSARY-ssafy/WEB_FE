@@ -9,7 +9,7 @@
 
     <!-- 요일 표시 -->
     <div class="weekdays">
-      <div v-for="day in weekDays" :key="day">{{ day }}</div>
+      <div v-for="day in weekDays" :key="day" class="weekday">{{ day }}</div>
     </div>
 
     <!-- 날짜 표시 -->
@@ -103,33 +103,38 @@ export default {
 </script>
 
 <style scoped>
-/* 루트 폰트 크기 기준으로 rem 단위 사용 */
-.mini-calendar {
-  width: 15.625rem; /* 250px => 15.625rem */
-  font-family: Arial, sans-serif;
-  border: 0.0625rem solid #ddd; /* 1px => 0.0625rem */
-  border-radius: 0.3125rem; /* 5px => 0.3125rem */
-  padding: 0.625rem; /* 10px => 0.625rem */
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1); /* 2px, 4px => rem 변환 */
-}
-
+/* 전체 캘린더 스타일 */
 .calendar-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-weight: bold;
-  margin-bottom: 0.625rem; /* 10px => 0.625rem */
+  margin-bottom: 0.5rem; /* 여백 조정 */
 }
 
 .calendar-header button {
   background-color: transparent;
   border: none;
   cursor: pointer;
-  font-size: 1rem; /* 기본 폰트 크기 */
+  font-size: 1rem; /* 버튼 글씨 크기 줄임 */
   color: #333;
 }
 
-.weekdays,
+.calendar-header span {
+  font-size: 1rem; /* 연/월 표시 크기 줄임 */
+}
+
+/* 요일 스타일 */
+.weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-size: 0.875rem; /* 요일 글씨 크기 줄임 */
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+/* 날짜 스타일 */
 .days {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -137,10 +142,16 @@ export default {
 }
 
 .day {
-  padding: 0.3125rem 0; /* 5px => 0.3125rem */
+  padding: 0.25rem 0; /* 날짜 셀 패딩 줄임 */
+  font-size: 0.875rem; /* 날짜 글씨 크기 줄임 */
 }
 
 .gray {
-  color: #ccc;
+  color: var(--neutral-dark); /* 이전/다음 달 색상 */
+}
+
+/* 최상단 요소에만 마진 적용 */
+.mini-calendar {
+  margin-top: 2rem; /* 상단 여백 */
 }
 </style>
