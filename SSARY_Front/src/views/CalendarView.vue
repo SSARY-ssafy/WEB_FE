@@ -1,13 +1,14 @@
 <template>
   <div class="calendar-view">
     <h1>전체 캘린더</h1>
-    <!-- MiniCalendar 컴포넌트 사용 -->
-    <MainCalendar />
+    <MiniCalendar />
+    <BigCalendar />
   </div>
 </template>
 
 <script setup>
-import MainCalendar from "@/components/calendar/Minical.vue";
+import MiniCalendar from "@/components/calendar/Minical.vue";
+import BigCalendar from "@/components/calendar/Bigcal.vue";
 </script>
 
 <style scoped>
