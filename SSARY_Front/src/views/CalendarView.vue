@@ -29,6 +29,7 @@ import BigCalendar from "@/components/calendar/Bigcal.vue";
   font-family: Arial, sans-serif;
   padding: 2rem;
   background-color: var(--background-color);
+  width: 100%;
 }
 
 h1 {
