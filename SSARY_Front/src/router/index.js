@@ -8,6 +8,7 @@ import ResumeView from '../views/ResumeView.vue'
 import MyNoteView from '../views/MyNoteView.vue'
 import LoginView from '../views/LoginView.vue'
 import RegisterView from '../views/RegisterView.vue'
+import FindView from '@/views/FindView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -51,6 +52,16 @@ const router = createRouter({
           path: '',
           name: 'login',
           component: LoginView,
+        },
+        {
+          path: 'find',
+          name: 'find',
+          component: FindView,
+        },
+        {
+          path: 'regist',
+          name: 'regist',
+          component: RegisterView,
         },
       ],
     },
