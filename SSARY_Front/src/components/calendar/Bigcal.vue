@@ -31,10 +31,8 @@
           class="list-item"
         >
           <span class="emoji">🚀</span>
-          <!-- 시작 의미 이모티콘 -->
           <span>{{ company.name }}</span>
           <span class="emoji">🏁</span>
-          <!-- 끝 의미 이모티콘 -->
           <span @click="toggleFavorite(date.day, idx)" class="heart">{{
             company.favorite ? "❤️" : "🤍"
           }}</span>
@@ -47,7 +45,6 @@
 <script setup>
 import { ref, onMounted } from "vue";
 
-// 날짜 데이터
 const currentDate = new Date();
 const currentYear = ref(currentDate.getFullYear());
 const currentMonth = ref(currentDate.getMonth() + 1);
@@ -56,10 +53,9 @@ const hoverDate = ref(null);
 const days = ["일", "월", "화", "수", "목", "금", "토"];
 const dates = ref([]);
 
-// 더미 데이터: 날짜별 기업 리스트
 const generateDummyData = () => {
   return Array.from({ length: 42 }, (_, i) => ({
-    day: i < 31 ? i + 1 : "", // 달에 따라 날짜 생성 (예시로 31일 기준)
+    day: i < 31 ? i + 1 : "",
     companies: [
       { name: "기업 A", favorite: false },
       { name: "기업 B", favorite: true },
@@ -107,13 +103,14 @@ onMounted(() => {
 <style scoped>
 /* 큰 캘린더 전체 */
 .big-calendar {
-  width: 60rem;
-  margin: 0 auto;
   background-color: var(--background-color);
   border: 1px solid var(--neutral-light);
   border-radius: 1rem;
-  padding: 2rem;
+  padding: 1rem;
   box-shadow: 0 0 0.5rem var(--neutral-light);
+  height: 100%; /* 부모 컨테이너의 높이만큼 채우기 */
+  box-sizing: border-box;
+  overflow: hidden; /* 넘치는 내용을 숨김 */
 }
 
 /* 헤더 */
@@ -121,21 +118,21 @@ onMounted(() => {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .nav-button {
   background-color: var(--secondary-color);
   border: none;
-  padding: 1rem 2rem;
-  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
   cursor: pointer;
   border-radius: 0.5rem;
   color: var(--primary-color);
 }
 
 .month-year {
-  font-size: 2rem;
+  font-size: 1.25rem;
   font-weight: bold;
 }
 
@@ -146,30 +143,25 @@ onMounted(() => {
   background-color: var(--secondary-color);
   text-align: center;
   font-weight: bold;
-  font-size: 1.5rem;
-  padding: 1rem 0;
-  border-radius: 0.5rem;
-}
-
-.weekday {
-  color: var(--primary-color);
+  font-size: 1rem;
+  padding: 0.5rem 0;
 }
 
 /* 날짜 그리드 */
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 1rem;
+  gap: 0.5rem;
+  overflow-y: auto; /* 스크롤 가능하게 설정 */
 }
 
 .date-cell {
-  min-height: 8rem;
+  min-height: 5rem;
   border: 1px solid var(--neutral-light);
   border-radius: 0.5rem;
-  padding: 1rem;
+  padding: 0.5rem;
   background-color: var(--background-color);
   position: relative;
-  transition: background-color 0.3s ease;
 }
 
 .date-cell.hovered {
@@ -177,28 +169,26 @@ onMounted(() => {
 }
 
 .date-number {
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: bold;
   position: absolute;
-  top: 0.5rem;
-  left: 0.5rem;
+  top: 0.25rem;
+  left: 0.25rem;
 }
 
-/* 리스트 아이템 */
 .list-item {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  margin-top: 0.5rem;
-  font-size: 1.2rem;
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
 }
 
 .emoji {
-  margin: 0 0.3rem;
+  margin: 0 0.1rem;
 }
 
 .heart {
   cursor: pointer;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 </style>
