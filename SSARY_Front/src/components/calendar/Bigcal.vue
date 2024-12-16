@@ -31,7 +31,7 @@
           class="list-item"
         >
           <span class="emoji">🚀</span>
-          <span>{{ company.name }}</span>
+          <span class="company-name">{{ company.name }}</span>
           <span class="emoji">🏁</span>
           <span @click="toggleFavorite(date.day, idx)" class="heart">{{
             company.favorite ? "❤️" : "🤍"
@@ -53,6 +53,7 @@ const hoverDate = ref(null);
 const days = ["일", "월", "화", "수", "목", "금", "토"];
 const dates = ref([]);
 
+// 더미 데이터 생성
 const generateDummyData = () => {
   return Array.from({ length: 42 }, (_, i) => ({
     day: i < 31 ? i + 1 : "",
@@ -108,9 +109,9 @@ onMounted(() => {
   border-radius: 1rem;
   padding: 1rem;
   box-shadow: 0 0 0.5rem var(--neutral-light);
-  height: 100%; /* 부모 컨테이너의 높이만큼 채우기 */
+  height: 100%;
   box-sizing: border-box;
-  overflow: hidden; /* 넘치는 내용을 숨김 */
+  overflow: hidden;
 }
 
 /* 헤더 */
@@ -143,7 +144,7 @@ onMounted(() => {
   background-color: var(--secondary-color);
   text-align: center;
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 0.875rem;
   padding: 0.5rem 0;
 }
 
@@ -151,44 +152,61 @@ onMounted(() => {
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 0.5rem;
-  overflow-y: auto; /* 스크롤 가능하게 설정 */
+  gap: 0.3rem;
+  overflow-y: auto;
 }
 
 .date-cell {
   min-height: 5rem;
   border: 1px solid var(--neutral-light);
   border-radius: 0.5rem;
-  padding: 0.5rem;
+  padding: 0.2rem;
   background-color: var(--background-color);
   position: relative;
+  font-size: 0.75rem;
 }
 
 .date-cell.hovered {
   background-color: var(--secondary-color);
 }
 
+/* 날짜 숫자 */
 .date-number {
-  font-size: 1rem;
+  font-size: 0.75rem;
   font-weight: bold;
   position: absolute;
   top: 0.25rem;
   left: 0.25rem;
 }
 
+/* 리스트 아이템 스타일 */
 .list-item {
   display: flex;
-  justify-content: space-between;
-  margin-top: 0.25rem;
-  font-size: 0.75rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.1rem;
+  font-size: 0.5rem; /* 글자 크기 */
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 0.1rem;
 }
 
+/* 기업 이름 스타일 */
+.company-name {
+  font-size: 0.5rem; /* 기업 이름 크기 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 이모티콘 스타일 */
 .emoji {
-  margin: 0 0.1rem;
+  font-size: 0.5rem; /* 이모티콘 크기 */
+  margin: 0;
 }
 
+/* 하트 아이콘 스타일 */
 .heart {
+  font-size: 0.5rem;
   cursor: pointer;
-  font-size: 1rem;
 }
 </style>
