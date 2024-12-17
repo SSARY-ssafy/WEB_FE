@@ -68,8 +68,10 @@ h1 {
   background-color: #ddf0f5;
   color: #333;
   font-weight: bold;
+  font-size: 1rem;
   border: 1px solid var(--neutral-light);
   border-radius: 0.5rem;
   height: 100%;
+  margin-top: 1rem;
 }
 </style>

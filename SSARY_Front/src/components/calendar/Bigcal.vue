@@ -229,12 +229,12 @@ onMounted(() => {
 }
 
 .date-cell {
-  min-height: 5rem;
+  min-height: 6rem;
   border: 1px solid var(--neutral-light);
   padding: 0.2rem;
   background-color: var(--background-color);
   position: relative;
-  font-size: 0.75rem;
+  font-size: 0.59rem;
 }
 
 .date-cell.hovered {
@@ -253,5 +253,26 @@ onMounted(() => {
   top: 0.25rem;
   left: 0.25rem;
   z-index: 2; /* 날짜가 위에 표시되도록 설정 */
+  margin-bottom: 0.5rem; /* 날짜 아래 여백 추가 */
+}
+
+.list-item {
+  display: flex;
+  align-items: center; /* 수직 가운데 정렬 */
+  justify-content: space-between; /* 내용과 하트를 양쪽 끝으로 배치 */
+  gap: 0.1rem;
+  font-size: 0.59rem; /* 글자 크기 */
+  margin-top: 1rem; /* 첫 번째 기업 이름과 날짜 사이 여백 */
+  width: 100%; /* 셀의 전체 너비 사용 */
+  position: relative;
+}
+
+.heart {
+  margin-left: auto; /* 하트를 오른쪽 끝으로 밀어내기 */
+  cursor: pointer; /* 클릭 가능하도록 설정 */
+}
+
+.list-item:nth-of-type(1) {
+  margin-top: 0.8rem; /* 날짜 숫자와 첫 번째 기업 사이 간격 */
 }
 </style>
