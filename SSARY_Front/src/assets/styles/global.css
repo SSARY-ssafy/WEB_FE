@@ -2,10 +2,11 @@
 
 /*폰트*/
 @font-face {
-    font-family: 'Pretendard-Regular';
-    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
-    font-weight: 400;
-    font-style: normal;
+  font-family: "Pretendard-Regular";
+  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
 }
 
 /*padding과 border를 요소 크기에 포함하도록 설정*/
@@ -16,137 +17,138 @@
 }
 
 body {
-    font-family: 'Pretendard-Regular';
-    font-size: var(--font-size-base);
-    background-color: var(--background-color);
+  font-family: "Pretendard-Regular";
+  font-size: var(--font-size-base);
+  background-color: var(--background-color);
 }
-input::placeholder{
-    font-family: 'Pretendard-Regular';
+input::placeholder {
+  font-family: "Pretendard-Regular";
 }
-
 
 /*레이아웃 설정*/
-html, body, #app, #wrapper, #body {
-    height: 100%;
+html,
+body,
+#app,
+#wrapper,
+#body {
+  height: 100%;
 }
 
-#body{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+#body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-#body main{
-    flex-grow: 1;
-    max-width: 1400px;
-    padding: 2rem 1rem;
-    padding-top: calc(2rem + 83px);
+#body main {
+  flex-grow: 1;
+  /* max-width: 1400px; */
+  padding: 2rem 1rem;
+  padding-top: calc(2rem + 83px);
 }
-
 
 /*header*/
 header {
-    width: 100%;
-    position: fixed;
-    z-index: 1;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
 }
 
-header .gnb{
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 2rem;
-    border-bottom: 1px solid var(--primary-color);
-    background-color: var(--background-color);
+header .gnb {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  border-bottom: 1px solid var(--primary-color);
+  background-color: var(--background-color);
 }
 
 header .gnb > * {
-    padding: 1rem;
+  padding: 1rem;
 }
 
 header .gnb > nav > ul {
-    display: flex;
+  display: flex;
 }
 
 header .gnb > nav > ul > li {
-    padding: 1rem 1.5rem;
+  padding: 1rem 1.5rem;
 }
 
 header .gnb > nav > ul > li > span {
-    color: var(--neutral-dark);
+  color: var(--neutral-dark);
 }
 
 header .gnb nav .menu-item {
-    position: relative;
-    min-width: fit-content;
+  position: relative;
+  min-width: fit-content;
 }
 
 header .gnb nav .submenu {
-    position: absolute;
-    /* display: none; */
-    left: 0;
-    top: 0;
-    width: 100%;
-    transform: translateY(0);
-    transition: transform .3s;
-    text-align: center;
-    z-index: -1;
+  position: absolute;
+  /* display: none; */
+  left: 0;
+  top: 0;
+  width: 100%;
+  transform: translateY(0);
+  transition: transform 0.3s;
+  text-align: center;
+  z-index: -1;
 }
 
 header .gnb nav .submenu > ul > li {
-    padding: .2rem;
+  padding: 0.2rem;
 }
 header .gnb .user-menu {
-    position: relative;
+  position: relative;
 }
 
 header .gnb .user-menu svg {
-    width: 34px;
-    transition: fill .3s;
+  width: 34px;
+  transition: fill 0.3s;
 }
 
 header .gnb .user-menu:hover svg {
-    fill: var(--primary-color);
+  fill: var(--primary-color);
 }
 
 header .gnb .user-menu .toolbox {
-    position: absolute;
-    right: 0;
-    width: 12rem;
-    min-height: 5rem;
-    padding: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    border: 1px solid var(--neutral-light);
-    background-color: var(--background-color);
+  position: absolute;
+  right: 0;
+  width: 12rem;
+  min-height: 5rem;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  border: 1px solid var(--neutral-light);
+  background-color: var(--background-color);
 }
 
 header .lnb {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    transform: translateY(-100%);
-    transition: transform .3s;
-    border-bottom: 1px solid var(--neutral-light);
-    background-color: var(--background-color);
-    z-index: -2;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: translateY(-100%);
+  transition: transform 0.3s;
+  border-bottom: 1px solid var(--neutral-light);
+  background-color: var(--background-color);
+  z-index: -2;
 }
 
-header.open .gnb nav .submenu{
-    display: block;
-    transform: translateY(calc(100% + 2.25rem));
+header.open .gnb nav .submenu {
+  display: block;
+  transform: translateY(calc(100% + 2.25rem));
 }
-header.open .lnb{
-    display: block;
-    transform: translateY(0%) !important;
+header.open .lnb {
+  display: block;
+  transform: translateY(0%) !important;
 }
-
 
 /*footer*/
 footer {
-    font-size: .975rem;
-    padding: .64rem;
+  font-size: 0.975rem;
+  padding: 0.64rem;
 }

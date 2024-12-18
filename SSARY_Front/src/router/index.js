@@ -14,32 +14,32 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
+      path: "/",
       component: DefaultLayout,
-      children:[
+      children: [
         {
-          path: '',
-          name: 'main',
+          path: "",
+          name: "main",
           component: MainView,
         },
         {
-          path: 'calendar',
-          name: 'calendar',
+          path: "calendar",
+          name: "calendar",
           component: CalendarView,
         },
         {
-          path: 'my-calendar',
-          name: 'myCalendar',
+          path: "my-calendar",
+          name: "myCalendar",
           component: MyCalendarView,
         },
         {
-          path: 'resume',
-          name: 'resume',
+          path: "resume",
+          name: "resume",
           component: ResumeView,
         },
         {
-          path: 'my-note',
-          name: 'myNote',
+          path: "my-note",
+          name: "myNote",
           component: MyNoteView,
         },
       ],
@@ -47,7 +47,7 @@ const router = createRouter({
     {
       path: '/userAuth',
       component: AuthLayout,
-      children:[
+      children: [
         {
           path: 'login',
           name: 'login',
@@ -66,6 +66,6 @@ const router = createRouter({
       ],
     },
   ],
-})
+});
 
-export default router
+export default router;
