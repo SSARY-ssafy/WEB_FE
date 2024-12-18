@@ -45,11 +45,11 @@ const router = createRouter({
       ],
     },
     {
-      path: '/login',
+      path: '/userAuth',
       component: AuthLayout,
       children:[
         {
-          path: '',
+          path: 'login',
           name: 'login',
           component: LoginView,
         },
@@ -61,17 +61,6 @@ const router = createRouter({
         {
           path: 'regist',
           name: 'regist',
-          component: RegisterView,
-        },
-      ],
-    },
-    {
-      path: '/register',
-      component: AuthLayout,
-      children:[
-        {
-          path: '',
-          name: 'register',
           component: RegisterView,
         },
       ],
