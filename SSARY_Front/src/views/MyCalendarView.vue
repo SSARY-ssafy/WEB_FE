@@ -65,7 +65,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ddf0f5;
+  background-color: var(--neutral-blue);
   color: #333;
   font-weight: bold;
   font-size: 1rem;

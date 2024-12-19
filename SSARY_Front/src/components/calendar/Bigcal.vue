@@ -217,7 +217,7 @@ onMounted(() => {
 .weekdays {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  background-color: #ddf0f5;
+  background-color: var(--neutral-blue);
   text-align: center;
   font-weight: bold;
   font-size: 0.875rem;
@@ -241,7 +241,7 @@ onMounted(() => {
 }
 
 .date-cell.hovered {
-  background-color: #ddf0f5;
+  background-color: var(--neutral-blue);
 }
 
 .date-cell.gray {

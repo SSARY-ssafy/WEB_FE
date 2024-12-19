@@ -5,13 +5,12 @@
   --secondary-color: #d0f9ff; /*보조 색상, 보조 버튼, 경계선, 배경 강조 등에 사용*/
   --background-color: #fff;
 
-  /* 이 색상도 좋은거 같아 #ddf0f5 */
-
   /*버튼 색상*/
 
   /*중립 색상*/
   --neutral-dark: #7f7f7f;
   --neutral-light: #d9d9d9;
+  --neutral-blue: #ddf0f5;
 
   /*기타 색상*/
   --warning-color: #e74852;
