@@ -183,7 +183,6 @@ onMounted(() => {
 .big-calendar {
   background-color: var(--background-color);
   border: 1px solid var(--neutral-light);
-  padding: 1rem;
   height: 100%;
   box-sizing: border-box;
   overflow: hidden;
@@ -194,7 +193,7 @@ onMounted(() => {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin-bottom: 1rem;
+  padding: 1rem;
 }
 
 .nav-button {
@@ -216,12 +215,15 @@ onMounted(() => {
 /* 요일 헤더 */
 .weekdays {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  background-color: var(--neutral-blue);
+  grid-template-columns: repeat(7, minmax(0, 1fr)); /* 7열 균등 분배 */
+  background-color: var(--neutral-blue); /* 배경색 */
   text-align: center;
   font-weight: bold;
   font-size: 0.875rem;
-  padding: 0.5rem 0;
+  padding: 0.5rem 0; /* 상하 여백 */
+  white-space: nowrap; /* 텍스트 줄바꿈 방지 */
+  overflow: hidden; /* 넘치는 텍스트 숨김 */
+  box-sizing: border-box; /* 테두리와 패딩 포함 */
 }
 
 /* 날짜 그리드 */
@@ -229,10 +231,15 @@ onMounted(() => {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   overflow-y: auto;
+  width: 100%; /* 부모의 가로 폭에 맞추기 */
+  gap: 0; /* 셀 간의 간격 제거 */
+  height: calc(100vh - 200px); /* 헤더 등을 제외한 전체 높이 */
+  box-sizing: border-box; /* 테두리와 패딩 포함 */
 }
 
 .date-cell {
   min-height: 6rem;
+  max-height: 8rem; /* 고정 높이 설정 */
   border: 1px solid var(--neutral-light);
   padding: 0.2rem;
   background-color: var(--background-color);
@@ -262,7 +269,8 @@ onMounted(() => {
 .list-item {
   display: flex;
   align-items: center; /* 수직 가운데 정렬 */
-  justify-content: space-between; /* 내용과 하트를 양쪽 끝으로 배치 */
+  flex-wrap: nowrap; /* 줄바꿈 방지 */
+  justify-content: flex-start; /* 내용과 하트를 양쪽 끝으로 배치 */
   gap: 0.1rem;
   font-size: 0.59rem; /* 글자 크기 */
   margin-top: 1rem; /* 첫 번째 기업 이름과 날짜 사이 여백 */
@@ -283,5 +291,13 @@ onMounted(() => {
   width: 16px; /* 원하는 크기로 조절 */
   height: 16px;
   margin-right: 0.25rem; /* 기업 이름과 간격 */
+}
+
+.company-name {
+  white-space: nowrap; /* 한 줄로 제한 */
+  overflow: hidden; /* 넘치는 텍스트 숨기기 */
+  text-overflow: ellipsis; /* 생략 부호(...) 표시 */
+  display: block; /* block 요소로 처리 */
+  max-width: 100%; /* 셀 내에서 너비를 부모에 맞추기 */
 }
 </style>
