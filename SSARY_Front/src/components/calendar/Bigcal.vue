@@ -35,9 +35,10 @@
           :key="idx"
           class="list-item"
         >
-          <span class="emoji">🚀</span>
+          <!-- BeginIcon, FinishIcon 선택해서 사용하세요  -->
+          <!-- <BeginIcon class="company-icon" /> -->
+          <FinishIcon class="company-icon" />
           <span class="company-name">{{ company.name }}</span>
-          <span class="emoji">🏁</span>
           <span @click="toggleFavorite(date.day, idx)" class="heart">{{
             company.favorite ? "❤️" : "🤍"
           }}</span>
@@ -49,6 +50,8 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
+import BeginIcon from "@/components/icons/Begin.vue";
+import FinishIcon from "@/components/icons/Finish.vue";
 
 const currentDate = new Date();
 const currentYear = ref(currentDate.getFullYear());
@@ -274,5 +277,11 @@ onMounted(() => {
 
 .list-item:nth-of-type(1) {
   margin-top: 0.8rem; /* 날짜 숫자와 첫 번째 기업 사이 간격 */
+}
+
+.company-icon {
+  width: 16px; /* 원하는 크기로 조절 */
+  height: 16px;
+  margin-right: 0.25rem; /* 기업 이름과 간격 */
 }
 </style>
