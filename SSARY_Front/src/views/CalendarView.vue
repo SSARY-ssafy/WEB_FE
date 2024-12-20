@@ -44,6 +44,7 @@ h1 {
 .mini-calendar-container {
   flex: 1; /* 작은 캘린더는 비율 1 */
   max-width: 16.66%; /* 1/6 비율 */
+  min-width: 12rem; /* 고정 최소 너비 (192px) */
 }
 
 /* 나머지 영역: 큰 캘린더 */

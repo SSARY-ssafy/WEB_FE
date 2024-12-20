@@ -153,5 +153,6 @@ export default {
 /* 최상단 요소에만 마진 적용 */
 .mini-calendar {
   margin-top: 2rem; /* 상단 여백 */
+  min-width: 10rem;
 }
 </style>
