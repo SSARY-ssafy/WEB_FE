@@ -50,6 +50,7 @@ h1 {
 .mini-calendar-container {
   flex: 1; /* 전체 비율의 1/6 */
   max-width: 16.66%; /* 1/6 비율 */
+  min-width: 12rem; /* 고정 최소 너비 (192px) */
 }
 
 /* 4/6: 큰 캘린더 */
@@ -65,7 +66,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ddf0f5;
+  background-color: var(--neutral-blue);
   color: #333;
   font-weight: bold;
   font-size: 1rem;
