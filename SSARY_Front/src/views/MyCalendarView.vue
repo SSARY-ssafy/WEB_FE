@@ -1,19 +1,18 @@
 <template>
   <div class="my-calendar-view">
     <h1>전체 캘린더</h1>
-    <!-- 캘린더 컨테이너 -->
     <div class="calendars-container">
-      <!-- 왼쪽: 작은 캘린더 -->
+      <!-- 작은 캘린더 -->
       <div class="mini-calendar-container">
         <MiniCalendar />
       </div>
-      <!-- 가운데: 큰 캘린더 -->
+      <!-- 큰 캘린더 -->
       <div class="big-calendar-container">
         <BigCalendar />
       </div>
-      <!-- 오른쪽: 추가 컴포넌트 (Placeholder) -->
+      <!-- TodoList 컴포넌트 -->
       <div class="additional-container">
-        <p>추가 컴포넌트 영역</p>
+        <TodoList />
       </div>
     </div>
   </div>
@@ -22,6 +21,7 @@
 <script setup>
 import MiniCalendar from "@/components/calendar/Minical.vue";
 import BigCalendar from "@/components/calendar/Bigcal.vue";
+import TodoList from "@/components/todo/TodoList.vue";
 </script>
 
 <style scoped>
@@ -30,49 +30,69 @@ import BigCalendar from "@/components/calendar/Bigcal.vue";
   padding: 2rem;
   background-color: var(--background-color);
   width: 100%;
+  height: 100%;
 }
 
-h1 {
-  text-align: center;
-  color: #333;
-  margin-bottom: 2rem;
-}
-
-/* 캘린더 컨테이너: Flexbox를 사용해 6등분 */
 .calendars-container {
   display: flex;
-  justify-content: space-between; /* 각 항목을 균등하게 배치 */
-  align-items: flex-start;
+  justify-content: space-between;
   gap: 2rem;
-}
-
-/* 1/6: 작은 캘린더 */
-.mini-calendar-container {
-  flex: 1; /* 전체 비율의 1/6 */
-  max-width: 16.66%; /* 1/6 비율 */
-  min-width: 12rem; /* 고정 최소 너비 (192px) */
-}
-
-/* 4/6: 큰 캘린더 */
-.big-calendar-container {
-  flex: 4; /* 전체 비율의 4/6 */
-  max-width: 66.66%; /* 4/6 비율 */
-}
-
-/* 1/6: 추가 컴포넌트 영역 */
-.additional-container {
-  flex: 1; /* 전체 비율의 1/6 */
-  max-width: 16.66%; /* 1/6 비율 */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--neutral-blue);
-  color: #333;
-  font-weight: bold;
-  font-size: 1rem;
-  border: 1px solid var(--neutral-light);
-  border-radius: 0.5rem;
   height: 100%;
-  margin-top: 1rem;
+}
+
+.mini-calendar-container {
+  flex: 1;
+  max-width: 16.66%; /* 작은 캘린더는 전체 너비의 1/6 */
+}
+
+.big-calendar-container {
+  flex: 4; /* 큰 캘린더는 전체 너비의 4/6 */
+}
+.additional-container {
+  flex: 1;
+  max-width: 16.66%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  border-radius: 0.5rem;
+  padding: 1rem 1rem;
+  height: 50%;
+  overflow-y: auto; /* 세로 스크롤 */
+  overflow-x: auto; /* 가로 스크롤 */
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+  white-space: nowrap; /* 텍스트 한 줄 유지 */
+
+  margin-top: 3rem; /* 부모 컨테이너의 남는 공간만큼 아래로 이동 */
+}
+
+/* 스크롤 스타일 */
+.additional-container::-webkit-scrollbar {
+  width: 8px; /* 스크롤바 너비 (상하) */
+  height: 8px; /* 스크롤바 높이 (좌우) */
+}
+
+.additional-container::-webkit-scrollbar-track {
+  background: #f1f1f1; /* 스크롤바 트랙 배경 */
+  border-radius: 8px;
+}
+
+.additional-container::-webkit-scrollbar-thumb {
+  background: #c1c1c1; /* 스크롤바 핸들 색상 */
+  border-radius: 8px;
+}
+
+.additional-container::-webkit-scrollbar-thumb:hover {
+  background: #a0a0a0; /* 마우스 오버 시 색상 */
+}
+
+/* 자식 요소 스타일 */
+.additional-container > * {
+  flex-grow: 1; /* 자식 요소가 부모의 남은 공간을 차지하도록 설정 */
+  width: 100%; /* 너비를 부모 컨테이너에 맞춤 */
+  margin-bottom: 1rem; /* 요소 간 간격 추가 */
+  box-sizing: border-box; /* 패딩과 테두리 포함 */
 }
 </style>
