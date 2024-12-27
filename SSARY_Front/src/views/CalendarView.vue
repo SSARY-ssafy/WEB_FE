@@ -49,6 +49,6 @@ h1 {
 /* 나머지 영역: 큰 캘린더 */
 .big-calendar-container {
   flex: 5; /* 남은 여백을 모두 차지 */
-  max-width: 83.33%; /* 전체 비율에서 나머지를 차지 */
+  max-width: 83.33%;
 }
 </style>
