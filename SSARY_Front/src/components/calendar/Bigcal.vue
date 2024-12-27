@@ -10,8 +10,10 @@
     </div>
 
     <!-- 요일 헤더 -->
-    <div class="weekdays">
-      <div v-for="day in days" :key="day" class="weekday">{{ day }}</div>
+    <div class="weekday">
+      <div class="weekdays">
+        <div v-for="day in days" :key="day" class="weekday-cell">{{ day }}</div>
+      </div>
     </div>
 
     <!-- 날짜 그리드 -->
@@ -185,7 +187,7 @@ onMounted(() => {
   border: 1px solid var(--neutral-light);
   height: 100%;
   box-sizing: border-box;
-  overflow: hidden;
+  min-width: 50rem;
 }
 
 /* 헤더 */
@@ -212,39 +214,52 @@ onMounted(() => {
   color: var(--neutral-dark);
 }
 
+.weekday {
+  height: 2rem;
+  display: block;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
 /* 요일 헤더 */
 .weekdays {
+  height: 2.5rem; /* 고정 높이 설정 */
+  /*  텍스트의 세로 중앙 정렬 기능을 함  */
+  line-height: 2.2rem;
   display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr)); /* 7열 균등 분배 */
+  grid-template-columns: repeat(7, 1fr); /* 7열 균등 분배 */
   background-color: var(--neutral-blue); /* 배경색 */
   text-align: center;
   font-weight: bold;
   font-size: 0.875rem;
-  padding: 0.5rem 0; /* 상하 여백 */
+  /* padding: 0.5rem 0;  */
   white-space: nowrap; /* 텍스트 줄바꿈 방지 */
-  overflow: hidden; /* 넘치는 텍스트 숨김 */
   box-sizing: border-box; /* 테두리와 패딩 포함 */
+  width: 100%; /* 부모의 가로 크기 채우기 */
+  height: 100%; /* 부모의 세로 크기 채우기 */
 }
 
 /* 날짜 그리드 */
 .calendar-grid {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  overflow-y: auto;
-  width: 100%; /* 부모의 가로 폭에 맞추기 */
+  grid-template-columns: repeat(7, 1fr); /* 7열 고정 */
+  min-width: 50rem; /* 부모의 가로 폭에 맞추기 */
   gap: 0; /* 셀 간의 간격 제거 */
   height: calc(100vh - 200px); /* 헤더 등을 제외한 전체 높이 */
   box-sizing: border-box; /* 테두리와 패딩 포함 */
 }
 
 .date-cell {
-  min-height: 6rem;
+  min-height: 8rem;
   max-height: 8rem; /* 고정 높이 설정 */
   border: 1px solid var(--neutral-light);
   padding: 0.2rem;
   background-color: var(--background-color);
   position: relative;
   font-size: 0.59rem;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 .date-cell.hovered {
