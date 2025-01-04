@@ -40,6 +40,15 @@ import TodoList from "@/components/todo/TodoList.vue";
   height: 100%;
 }
 
+.mini-calendar-container,
+.big-calendar-container {
+  margin-top: 2rem; /* 아래로 간격 설정 */
+}
+
+.additional-container {
+  margin-top: 2rem; /* 동일한 간격 유지 */
+}
+
 .mini-calendar-container {
   flex: 1;
   max-width: 16.66%; /* 작은 캘린더는 전체 너비의 1/6 */
