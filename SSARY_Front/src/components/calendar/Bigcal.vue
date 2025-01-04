@@ -252,7 +252,6 @@ onMounted(() => {
 
 .date-cell {
   min-height: 8rem;
-  max-height: 8rem; /* 고정 높이 설정 */
   border: 1px solid var(--neutral-light);
   padding: 0.2rem;
   background-color: var(--background-color);
