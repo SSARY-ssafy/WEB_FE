@@ -1,6 +1,9 @@
 <template>
   <div class="input-wrapper">
     <label :for="id">{{ labelText }}</label>
+    <span v-if="cautionText" :class="{ red: isRed }" class="caution">
+      {{ cautionText }}
+    </span>
     <input
       :type="type"
       :id="id"
@@ -16,6 +19,11 @@
 <script setup>
 defineProps({
   labelText: String,
+  isRed: {
+    type: Boolean,
+    default: false,
+  },
+  cautionText: String,
   type: {
     type: String,
     default: "text",
@@ -51,5 +59,13 @@ input {
 
 input.small {
   width: 49%;
+}
+
+.caution {
+  font-size: 0.8rem;
+  padding: 0 0.4rem;
+}
+.caution.red {
+  color: var(--warning-color);
 }
 </style>
