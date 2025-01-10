@@ -1,18 +1,30 @@
 <template>
-  <div class="card">
-    <div>Do not have account?</div>
+  <div class="card" :class="{ blue: props.type === 'blue' }">
+    <div>{{ props.guide }}</div>
     <div class="go">
       <div></div>
       <div>
         <p>
-          <router-link :to="{ name: 'regist' }">회원 가입하러 가기</router-link>
+          <router-link :to="{ name: props.linkName }">
+            {{ props.text }}
+          </router-link>
         </p>
       </div>
     </div>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+const props = defineProps({
+  guide: String,
+  type: {
+    type: String,
+    default: "gray",
+  },
+  linkName: String,
+  text: String,
+});
+</script>
 
 <style scoped>
 .card {

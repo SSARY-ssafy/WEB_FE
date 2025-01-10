@@ -17,6 +17,7 @@
 
   /*기타 스타일*/
   --font-size-base: 18px;
+  --min-width: 20rem;
 
   /*Auth*/
   --diary-width: 976px;
