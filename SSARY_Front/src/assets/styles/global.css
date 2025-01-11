@@ -21,7 +21,8 @@ body {
   font-size: var(--font-size-base);
   background-color: var(--background-color);
 }
-input::placeholder {
+input::placeholder,
+select:invalid {
   font-family: "Pretendard-Regular";
 }
 
@@ -32,6 +33,7 @@ body,
 #wrapper,
 #body {
   height: 100%;
+  min-width: var(--min-width);
 }
 
 #body {
@@ -51,7 +53,7 @@ body,
 header {
   width: 100%;
   position: fixed;
-  z-index: 1;
+  z-index: 99;
 }
 
 header .gnb {
@@ -122,6 +124,7 @@ header .gnb .user-menu .toolbox {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
   border-radius: 10px;
   border: 1px solid var(--neutral-light);
   background-color: var(--background-color);
@@ -151,4 +154,83 @@ header.open .lnb {
 footer {
   font-size: 0.975rem;
   padding: 0.64rem;
+}
+
+/*Field*/
+.input-wrapper {
+  width: 100%;
+}
+
+/*userAuth*/
+.form {
+  margin: 0px 45px;
+}
+
+.form .logo {
+  text-align: center;
+  position: relative;
+}
+.form .logo img {
+  width: 153px;
+}
+.form .logo > p {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 0.244em;
+  color: rgb(255, 255, 255);
+  width: 100%;
+  text-align: center;
+  transform: translateX(0.4em);
+  font-size: 0.95em;
+}
+
+.form .or {
+  border-bottom: 3px solid rgb(212, 212, 212);
+  text-align: center;
+  margin-bottom: 1.5rem;
+  transform: translateY(-1.5rem);
+}
+.form .or > div {
+  width: 2.8em;
+  height: 2.8em;
+  border: 4px solid rgb(212, 212, 212);
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px auto;
+  transform: translateY(1.4em);
+  font-weight: bold;
+  color: rgb(212, 212, 212);
+}
+
+.form .simple {
+  width: 100%;
+  margin: 10px 0;
+  padding: 15px;
+  border: 1px solid rgb(218, 220, 224);
+  border-radius: 20px;
+  text-align: center;
+}
+
+.form .multi-input {
+  display: flex;
+  align-items: flex-end;
+}
+
+@media (max-width: 550px) {
+  .form {
+    margin: 0px 15px;
+  }
+}
+@media (max-width: 480px) {
+  .form {
+    margin: 0px 5px;
+  }
+}
+@media (max-width: 460px) {
+  .form {
+    margin: 0px 0px;
+  }
 }

@@ -1,22 +1,13 @@
 <template>
-    <main>
-        회원가입
-
-        <div class="link-group">
-                <RouterLink :to="{ name: 'login' }" class="link">
-                    로그인
-                </RouterLink> | 
-                <RouterLink :to="{ name: 'find' }" class="link">
-                    아이디, 비밀번호 찾기
-                </RouterLink>
-        </div>
-    </main>
+  <main>
+    <Book :type="'regist'" />
+    <Liquid />
+  </main>
 </template>
 
 <script setup>
-
+import Book from "@/components/userAuth/Book.vue";
+import Liquid from "@/components/Liquid.vue";
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

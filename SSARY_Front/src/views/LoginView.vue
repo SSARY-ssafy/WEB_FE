@@ -1,6 +1,6 @@
 <template>
   <main>
-    <Book />
+    <Book :type="'login'" />
     <Liquid />
   </main>
 </template>
@@ -10,12 +10,4 @@ import Book from "@/components/userAuth/Book.vue";
 import Liquid from "@/components/Liquid.vue";
 </script>
 
-<style scoped>
-main {
-  display: flex;
-  height: 100vh;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-</style>
+<style scoped></style>

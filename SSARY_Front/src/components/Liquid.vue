@@ -37,7 +37,6 @@
   width: 100%;
   height: 40%;
   /* background-color: rgb(15, 15, 15, .3); */
-  z-index: -1;
 }
 .liquid .move-liquid {
   animation: wave-back 6s linear infinite;

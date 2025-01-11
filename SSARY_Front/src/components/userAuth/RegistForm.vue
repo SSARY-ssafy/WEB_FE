@@ -2,7 +2,7 @@
   <div class="form">
     <div class="logo">
       <router-link :to="{ name: 'main' }">로고~<br /><br /></router-link>
-      <p>로그인</p>
+      <p>회원가입</p>
     </div>
     <div class="form-box">
       <InputField
@@ -19,13 +19,19 @@
         :required="true"
         v-model.trim="password"
       />
-      <button-basic type="button" @click="login">Sign In</button-basic>
+      <InputField
+        :labelText="'Password Confirm'"
+        :type="'password'"
+        :placeholder="'비밀번호 재입력'"
+        :required="true"
+        v-model.trim="passwordConfirm"
+      />
+      <button-basic type="button" @click="goNext">Next</button-basic>
     </div>
-    <p><router-link :to="{ name: 'find' }">ID/PW 찾기</router-link></p>
     <div class="or">
       <div>OR</div>
     </div>
-    <div class="simple">간편로그인 넣기</div>
+    <div class="simple">간편회원가입 넣기</div>
   </div>
 </template>
 
@@ -35,10 +41,17 @@ import { ref } from "vue";
 import InputField from "@/components/InputField.vue";
 import ButtonBasic from "@/components/buttons/ButtonBasic.vue";
 
+const emit = defineEmits(["handle-is-next"]);
+
+const goNext = () => {
+  emit("handle-is-next", true);
+};
+
 const userStore = useUserStore();
 
 const email = ref("");
 const password = ref("");
+const passwordConfirm = ref("");
 
 const login = () => {
   if (!email.value.trim() || !password.value.trim()) {
